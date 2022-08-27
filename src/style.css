@@ -14,7 +14,15 @@ body {
     background-attachment: fixed;
     background-size: cover;
     /*  */
-    color: white;    
+    color: white;
+}
+
+:root {
+    --font-color: white;
+    --border-color: gray;
+    --bg-light: white;
+    --bg-dark: black;
+    --btn-color: rgb(112, 43, 43);
 }
 
 /* Header */
@@ -29,7 +37,7 @@ header {
 }
 
 .logo {
-    font-size: 1.6rem;
+    font-size: 3rem;
     font-weight: bold;
 }
 
@@ -38,22 +46,73 @@ header {
     gap: 20px;
     align-items: center;
     justify-content: center;
-    font-size: 0.7rem;
+    font-size: 1.1rem;
 }
 
-
-a {
-    text-decoration: none;
-    color: white;
+button {
+    height: 40px;
+    width: 120px;
+    border: none;
+    color: var(--font-color);
+    background-color: var(--btn-color);
+    border-radius: 0.6rem;
 }
-
 /* main */
 
 main {
-    margin-top: 30px;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
     text-align: center;
+
+    margin-top: 30px;
 }
 
-p {
-    margin-bottom: 5px;
+.hero {
+    width: 700px;
+}
+
+main h1 {
+    background: linear-gradient(90deg, rgb(228, 135, 151) 0%, rgba(208,14,171,1) 35%, rgb(226, 79, 104) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: rgb(228, 135, 151);
+    font-size: 3rem;
+    font-weight: 900;
+}
+
+main p {
+    color: rgb(228, 135, 151);
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+
+/* menu */
+.foods {
+    display: grid;
+    grid-template-columns:repeat(auto-fit, minmax(80px,1fr))
+}
+
+.food {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgb(76, 72, 72);
+    border-radius: 1rem;
+    height: 10rem;
+    width: 10rem;
+}
+
+.food > .desc {
+    font-size: small;
+    color: lightgray;
+}
+
+.food > img {
+    width: 100px;
+    height: 80px;
+    border-radius: 1rem;
 }
