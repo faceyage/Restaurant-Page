@@ -1,6 +1,6 @@
 import './style.css';
-
-
+import Menu from './menu';
+import Contact from "./contact";
 function header_component() {
     const header = document.createElement("header");
     
@@ -12,25 +12,22 @@ function header_component() {
     const links = document.createElement("div");
     links.classList.add("links");
     
-    const home = document.createElement("div");
+    const home = document.createElement("button");
     home.classList.add("home");
-    const homeURL = document.createElement("home");
-    homeURL.textContent = "HOME";
-    home.appendChild(homeURL);
+    home.textContent = "HOME";
+    home.onclick = renderHome;
     links.appendChild(home);
 
-    const menu = document.createElement("div");
+    const menu = document.createElement("button");
     menu.classList.add("menu");
-    const menuURL = document.createElement("a");
-    menuURL.textContent = "MENU"
-    menu.appendChild(menuURL);
+    menu.textContent = "MENU";
+    menu.onclick = Menu.render;
     links.appendChild(menu);
     
-    const contact = document.createElement("div");
+    const contact = document.createElement("button");
     contact.classList.add("contact");
-    const contactURL = document.createElement("a");
-    contactURL.textContent = "CONTACT";
-    contact.appendChild(contactURL)
+    contact.textContent = "CONTACT";
+    contact.onclick = Contact.render;
     links.appendChild(contact);
 
     header.appendChild(logo);
@@ -42,15 +39,30 @@ function header_component() {
 function main_component() {
     const main = document.createElement("main");
     
-    const text = document.createElement("p");
-    text.textContent = "Best Keabab in your Country!"
-    main.appendChild(text);
+    const hero = document.createElement("div");
+    hero.classList.add("hero");
+    main.appendChild(hero);
+    
+    const text = document.createElement("h1");
+    text.textContent = "Come on down for some delicious Turkish cuisine!"
+    hero.appendChild(text);
     
     const text2 = document.createElement("p");
-    text2.textContent = "Made with passion since since 1998!"
-    main.appendChild(text2);
+    text2.textContent = "Same Taste since 1998!"
+    hero.appendChild(text2);
     
+    const orderBtn = document.createElement("button");
+    orderBtn.classList.add("btn");
+    main.appendChild(orderBtn);
+
     return main;
+}
+
+function renderHome() {
+    const content = document.getElementById("content");
+    const main = document.querySelector("main");
+    content.removeChild(main);
+    content.appendChild(main_component());
 }
 
 const content = document.getElementById("content");
