@@ -53,7 +53,31 @@ function main_component() {
     
     const orderBtn = document.createElement("button");
     orderBtn.classList.add("btn");
+    orderBtn.textContent = "Order Now!";
+    orderBtn.onclick = Menu.render;
     main.appendChild(orderBtn);
+
+    const info = document.createElement("div");
+    info.classList.add("info");
+    main.appendChild(info);
+
+    const adress = document.createElement("div");
+    adress.classList.add("adress");
+    adress.textContent = "🏠 Hollywood Boulevard 42, Los Angeles, USA";
+    info.appendChild(adress);
+
+    const hours = document.createElement("div");
+    hours.classList.add("hours");
+    hours.textContent = "";
+
+    const weekday_hours = document.createElement("p");
+    weekday_hours.textContent = "🕛Mon-Thurs: 8am - 8pm";
+    hours.appendChild(weekday_hours);
+
+    const weekened_hours = document.createElement("p");
+    weekened_hours.textContent = "🕛 Fri-Sun: 8am - 11pm";
+    hours.appendChild(weekened_hours);
+    info.appendChild(hours);
 
     return main;
 }

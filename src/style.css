@@ -8,21 +8,25 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-body {
-    background-image: url("https://img.freepik.com/free-photo/top-view-tasty-kebab-plate-with-copy-space_23-2148685471.jpg?w=2000");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    /*  */
-    color: white;
-}
-
 :root {
     --font-color: white;
     --border-color: gray;
     --bg-light: white;
-    --bg-dark: black;
+    --dark-card: rgba(0, 0, 0, 0.3);
     --btn-color: rgb(112, 43, 43);
+    --food-color: rgba(87, 31, 2);
+    --card-color: rgb(128, 128, 128, 0.5);
+}
+
+body {
+    background-image: url(food.jpg);
+    /* background: none; */
+    background-color: var(--border-color);
+    background-repeat: no-repeat;   
+    background-attachment: fixed;
+    background-size: cover;
+    /*  */
+    color: white;
 }
 
 /* Header */
@@ -57,12 +61,15 @@ button {
     background-color: var(--btn-color);
     border-radius: 0.6rem;
 }
-/* main */
+/* home page */
 
 main {
-    /* display: flex;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center; */
+    justify-content: center;
+    gap: 30px;
+
     text-align: center;
 
     margin-top: 30px;
@@ -70,6 +77,32 @@ main {
 
 .hero {
     width: 700px;
+    margin-top: 100px;
+}
+
+.hero > * {
+    margin-bottom: 10px;
+}
+
+.info {
+    background-color: var(--dark-card);
+    min-height: 300px;
+    max-width: 700px;
+    border-radius: 1rem;
+    padding: 25px;
+    display: flex;
+    gap: 30px;
+}
+
+.info > .adress {
+    font-weight: bold;
+    font-size: 20px;
+    max-width: 50%;
+}
+
+.hours > * {
+    margin-bottom: 20px;
+
 }
 
 main h1 {
@@ -91,7 +124,12 @@ main p {
 /* menu */
 .foods {
     display: grid;
-    grid-template-columns:repeat(auto-fit, minmax(80px,1fr))
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+
+    background-color: var(--food-color);
+    max-width: 700px;
+    padding: 50px;
 }
 
 .food {
@@ -99,15 +137,17 @@ main p {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    background-color: rgb(76, 72, 72);
+    padding: 20px;
+    
+    background-color: var(--card-color);
     border-radius: 1rem;
-    height: 10rem;
-    width: 10rem;
+    width: 90%;
+
+    font-size: 2rem;
+    font-weight: bold;
 }
 
 .food > .desc {
-    font-size: small;
     color: lightgray;
 }
 
@@ -115,4 +155,16 @@ main p {
     width: 100px;
     height: 80px;
     border-radius: 1rem;
+}
+
+/* Contact */
+
+.contactInfo {
+    margin-top: 50px;
+}
+
+.contactInfo > * {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
 }
